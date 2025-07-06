@@ -23,4 +23,4 @@ A lightweight sentiment analysis app that compares Random Forest, Logistic Regre
 the bert model folder also requires the safe tensor file which is too large to upload here so download it from
 https://drive.google.com/file/d/1GQ0pjaX7e-RgewstwtNjV7Om5ettOQ-6/view?usp=drive_link
 to run the model
-use streamlit to run the app.py file to run a responsive web ap
+use streamlit to run the app.py file to run a responsive web app
