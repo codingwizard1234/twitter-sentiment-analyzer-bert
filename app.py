@@ -1,14 +1,24 @@
 import streamlit as st
 from transformers import pipeline, AutoTokenizer, AutoModelForSequenceClassification
 import os
+import gdown
+
+# Setup paths
+model_dir = os.path.join(os.getcwd(), "bert_sentiment_model")
+model_file = os.path.join(model_dir, "model.safetensors")
+drive_url = "https://drive.google.com/uc?id=1GQ0pjaX7e-RgewstwtNjV7Om5ettOQ-6"
+
+# Download model if missing
+if not os.path.exists(model_file):
+    os.makedirs(model_dir, exist_ok=True)
+    st.info("Downloading model from Google Drive...")
+    gdown.download(drive_url, model_file, quiet=False)
 
 # Load model from local folder
-model_path = os.path.join(os.getcwd(), "bert_sentiment_model")
-
 @st.cache_resource
 def load_model():
-    tokenizer = AutoTokenizer.from_pretrained(model_path,local_files_only=True)
-    model = AutoModelForSequenceClassification.from_pretrained(model_path)
+    tokenizer = AutoTokenizer.from_pretrained(model_dir, local_files_only=True)
+    model = AutoModelForSequenceClassification.from_pretrained(model_dir, local_files_only=True)
     classifier = pipeline("sentiment-analysis", model=model, tokenizer=tokenizer)
     return classifier
 
