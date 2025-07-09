@@ -1,7 +1,7 @@
 import os
 import gdown
 import zipfile
-
+import streamlit as st
 # Define paths
 zip_path = "bert_model.zip"
 model_dir = "bert_sentiment_model"
