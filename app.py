@@ -4,7 +4,7 @@ import os
 import gdown
 
 # Setup paths
-model_dir = os.path.join(os.getcwd(), "bert_sentiment_model")
+model_dir = os.path.join(os.getcwd(), "/Users/arnavkumargupta/Documents/programs/mlproject/bert_sentiment_model")
 model_file = os.path.join(model_dir, "model.safetensors")
 drive_url = "https://drive.google.com/uc?id=1GQ0pjaX7e-RgewstwtNjV7Om5ettOQ-6"
 
